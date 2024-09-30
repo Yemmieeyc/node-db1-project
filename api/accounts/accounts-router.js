@@ -28,12 +28,10 @@ router.post('/',
   } catch (err){
     next(err)
   }
-  // DO YOUR MAGIC
 })
 
 router.put('/:id',md.checkAccountId,
   md.checkAccountPayload, 
-  md.checkAccountNameUnique,
   async (req, res, next) => {
   try{
     const updated = await Account.updateById(req.params.id, req.body)
@@ -41,7 +39,7 @@ router.put('/:id',md.checkAccountId,
   } catch (err){
     next(err)
   }
-  // DO YOUR MAGIC
+  
 });
 
 router.delete('/:id', md.checkAccountId, async (req, res, next) => {
